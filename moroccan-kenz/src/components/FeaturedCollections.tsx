@@ -1,9 +1,18 @@
 import Link from "next/link";
 
 const collections = [
-  "Hammam Essentials",
-  "Natural Clays & Powders",
-  "Body Oils & Moisturisers",
+  {
+    title: "Hammam Essentials",
+    href: "/shop/hammam-essentials",
+  },
+  {
+    title: "Natural Clays & Powders",
+    href: "/shop/natural-clays",
+  },
+  {
+    title: "Body Oils & Moisturisers",
+    href: "/shop/body-oils",
+  },
 ];
 
 export default function FeaturedCollections() {
@@ -26,7 +35,7 @@ export default function FeaturedCollections() {
       </div>
 
       <div className="featured-collections-grid">
-        {collections.map((title) => (
+        {collections.map(({ title, href }) => (
           <article
             className="featured-collections-card"
             key={title}
@@ -45,7 +54,7 @@ export default function FeaturedCollections() {
                 {title}
               </h3>
               <Link
-                href="/shop"
+                href={href}
                 className="featured-collections-link"
               >
                 Explore Collection
